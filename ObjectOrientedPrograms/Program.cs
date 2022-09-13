@@ -1,5 +1,6 @@
 ﻿using ObjectOrientedPrograms.InventoryManagement;
 using ObjectOrientedPrograms.InventoryManagementSystem;
+using ObjectOrientedPrograms.StockManagement;
 
 namespace ObjectOrientedPrograms
 {
@@ -8,11 +9,12 @@ namespace ObjectOrientedPrograms
         //given inventory path to json
         const string INVENTORY_DATA_FILE_PATH = @"C:\Users\Suraj Sinha\OneDrive\Desktop\Bridgelabz\ObjectOrientedProgram\ObjectOrientedPrograms\InventoryManagement\Inventory.json";
         const string INVENTORYDETAILS_DATA_FILE_PATH = @"C:\Users\Suraj Sinha\OneDrive\Desktop\Bridgelabz\ObjectOrientedProgram\ObjectOrientedPrograms\InventoryManagementSystem\InventoryDetails.json";
+        const string STOCK1_DATA_FILE_PATH = @"C:\Users\Suraj Sinha\OneDrive\Desktop\Bridgelabz\ObjectOrientedProgram\ObjectOrientedPrograms\StockManagement\Stock1.json";
         static void Main(string[] args)
         {
             while (true)
             {
-                Console.WriteLine("Select Programs\n 1.InventoryManagement\n 2.InventoryManagementSystem");
+                Console.WriteLine("Select Programs\n 1.InventoryManagement\n 2.InventoryManagementSystem\n 3.StockManagement");
                 int option = Convert.ToInt32(Console.ReadLine());
                 switch (option)
                 {
@@ -38,6 +40,10 @@ namespace ObjectOrientedPrograms
                         //Edit Inventory
                         inventoryFactory.EditInventory("RiceList", "Basmati");
                         inventoryFactory.WriteToJson(INVENTORYDETAILS_DATA_FILE_PATH);
+                        break;
+                    case 3:
+                        Stock1 stock = new Stock1();
+                        stock.ReadJsonFile(STOCK1_DATA_FILE_PATH);
                         break;
                 }
             }
